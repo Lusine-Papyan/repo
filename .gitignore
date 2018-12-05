@@ -1,0 +1,7 @@
+# ignore a file type
+*.db
+*.log
+
+# ignore a folder
+/target/
+/bin/
