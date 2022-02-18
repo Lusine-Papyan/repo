@@ -12,11 +12,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static com.codeborne.selenide.Browsers.CHROME;
+import static com.codeborne.selenide.Browsers.*;
 import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class BaseTest {
 
@@ -25,12 +24,14 @@ public class BaseTest {
     public void test() throws MalformedURLException {
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability(CapabilityType.BROWSER_NAME, CHROME);
+//        caps.setCapability(CapabilityType.BROWSER_NAME, EDGE);
         caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.WIN10);
         Configuration.browserCapabilities=caps;
-        WebDriver driver = new RemoteWebDriver(
-                new URL("https://oauth-lusine05papyan-07bfd:71010d1c-46f1-4e28-9164-669d0e957682@ondemand.eu-central-1.saucelabs.com:443/wd/hub"), caps);
-        driver.get("www.google.com");
+        Configuration.browser=FIREFOX;
+//        -Dselenide.remote=https://oauth-lusine05papyan-07bfd:71010d1c-46f1-4e28-9164-669d0e957682@ondemand.eu-central-1.saucelabs.com:443/wd/hub
+
+        Configuration.remote="https://oauth-lusine05papyan-07bfd:71010d1c-46f1-4e28-9164-669d0e957682@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
+        open("https://www.list.am");
 
         $(By.name("user.name")).setValue("johny");
         $("#submit").click();
