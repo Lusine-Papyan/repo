@@ -20,5 +20,4 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean test'
-    options: SAUCE_USERNAME=$(SAUCE_USERNAME)
     
