@@ -29,6 +29,7 @@ public class BaseTest {
         caps.setCapability(CapabilityType.PLATFORM_NAME, System.getenv("-Dplatform"));
         Configuration.browserCapabilities=caps;
         Configuration.browser=System.getenv("-Dbrowser");
+        System.out.println("BROWSER = " + System.getenv("-Dbrowser"));
 //        -Dselenide.remote=https://oauth-lusine05papyan-07bfd:71010d1c-46f1-4e28-9164-669d0e957682@ondemand.eu-central-1.saucelabs.com:443/wd/hub
 
         Configuration.remote="https://oauth-lusine05papyan-07bfd:71010d1c-46f1-4e28-9164-669d0e957682@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
