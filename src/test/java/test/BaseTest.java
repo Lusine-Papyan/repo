@@ -16,6 +16,7 @@ import static com.codeborne.selenide.Browsers.*;
 import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
+import static org.openqa.selenium.Platform.WIN10;
 
 public class BaseTest {
 
@@ -25,9 +26,9 @@ public class BaseTest {
 
         DesiredCapabilities caps = new DesiredCapabilities();
 //        caps.setCapability(CapabilityType.BROWSER_NAME, EDGE);
-        caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.WIN10);
+        caps.setCapability(CapabilityType.PLATFORM_NAME, System.getenv("-Dplatform"));
         Configuration.browserCapabilities=caps;
-        Configuration.browser=FIREFOX;
+        Configuration.browser=System.getenv("-Dbrowser");
 //        -Dselenide.remote=https://oauth-lusine05papyan-07bfd:71010d1c-46f1-4e28-9164-669d0e957682@ondemand.eu-central-1.saucelabs.com:443/wd/hub
 
         Configuration.remote="https://oauth-lusine05papyan-07bfd:71010d1c-46f1-4e28-9164-669d0e957682@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
