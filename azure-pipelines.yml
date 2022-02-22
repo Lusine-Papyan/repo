@@ -6,8 +6,22 @@
 trigger:
 - master
 
-pool:
-  vmImage: ubuntu-latest
+parameters:
+ - name: image
+   displayName: Pool Image
+   type: string
+   default: windows-latest
+   values:
+   - win10
+   - win8.1
+ - name: browser
+   displayName: Browser Type
+   type: string
+   default: chrome
+   values:
+   - chrome
+   - firefox
+   - edge
 
 steps:
 - task: Maven@3
@@ -20,4 +34,5 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'test'
+    options: -Dplatform=${{parameters.image}} -Dbrowser=${{parameters.browser}}
     
