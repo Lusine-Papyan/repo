@@ -10,14 +10,14 @@ parameters:
  - name: image
    displayName: Pool Image
    type: string
-   default: windows-latest
+   default: win10
    values:
    - win10
    - win8.1
  - name: browser
    displayName: Browser Type
    type: string
-   default: chrome
+   default: edge
    values:
    - chrome
    - firefox
@@ -34,5 +34,10 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'test'
-    options: -Dplatform=${{parameters.image}} -Dbrowser=${{parameters.browser}}
+    options: 
+      -Dplatform=${{parameters.image}} 
+      -Dbrowser=${{parameters.browser}} 
+      -DaccessKey=$(acess_key)
+      -Dusername=$(username)
+
     
