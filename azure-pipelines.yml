@@ -22,6 +22,13 @@ parameters:
    - chrome
    - firefox
    - edge
+ - name: env
+   displayName: Environment
+   type: string
+   default: qa
+   values:
+   - qa
+   - release
 
 steps:
 - task: Maven@3
@@ -35,6 +42,7 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'test'
     options: 
+      -Dplatform=${{parameters.env}} 
       -Dplatform=${{parameters.image}} 
       -Dbrowser=${{parameters.browser}} 
       -DaccessKey=$(acess_key)
