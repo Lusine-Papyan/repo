@@ -3,6 +3,7 @@ package webdriver_manager;
 
 import com.codeborne.selenide.Configuration;
 import lombok.experimental.UtilityClass;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import utils.TestEnvHelper;
@@ -24,7 +25,7 @@ public class WebDriverManager {
 
     public void configureRemoteDriver(String platform, String driverType, String remoteUrl) {
         capabilities = new DesiredCapabilities();
-        capabilities.setCapability(CapabilityType.PLATFORM_NAME, platform);
+        capabilities.setCapability(CapabilityType.PLATFORM_NAME, Platform.WIN10);
         Configuration.browserCapabilities=capabilities;
         Configuration.browser=driverType;
         Configuration.remote= remoteUrl;
