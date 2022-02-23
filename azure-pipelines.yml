@@ -41,11 +41,6 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'test'
-    options: 
-      -Dplatform=${{parameters.env}} 
-      -Dplatform=${{parameters.image}} 
-      -Dbrowser=${{parameters.browser}} 
-      -DaccessKey=$(acess_key)
-      -Dusername=$(username)
+    options: -Dplatform=${{parameters.env}} -Dplatform=${{parameters.image}} -Dbrowser=${{parameters.browser}} -DaccessKey=$(acess_key) -Dusername=$(username)
 
     
