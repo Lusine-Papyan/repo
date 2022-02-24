@@ -18,7 +18,12 @@ public class HomeStepDefinitions {
     }
 
     @Given("I verify Yardi page is opened")
-    public void signIn() {
+    public void pageIsOpen() {
         Assert.assertTrue(homePage.isMenuItemExist("Markets"));
+    }
+
+    @Given("Run fail test scenario")
+    public void failTest() {
+        Assert.assertFalse(true);
     }
 }
